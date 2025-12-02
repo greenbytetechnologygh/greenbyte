@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenByte Technologies Ghana - Innovating Sustainably, Growing Responsibly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Sticky Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #22c55e;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: #22c55e;
+        }
+
+        .cta-btn {
+            background: #22c55e;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn:hover {
+            background: #16a34a;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(21, 128, 61, 0.9));
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero.small {
+            padding: 4rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero.small h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #22c55e;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Impact Snapshot */
+        .impact-snapshot {
+            background: #f8fafc;
+            padding: 3rem 2rem;
+        }
+
+        .impact-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .impact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .impact-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #22c55e;
+            display: block;
+        }
+
+        .impact-label {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Why GreenByte */
+        .why-greenbyte {
+            background: #f8fafc;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            padding: 2rem;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #1e293b;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #22c55e;
+            display: none;
+        }
+
+        .testimonial-card.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #22c55e;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 3rem 2rem;
+            background: white;
+        }
+
+        .partners-grid {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .partner-logo {
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #64748b;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #22c55e;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Programs Tabs */
+        .programs-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .tab-btn.active {
+            background: #22c55e;
+            color: white;
+            border-color: #22c55e;
+        }
+
+        .tab-content {
+            display: none;
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .program-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info-box {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #22c55e;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Media Page */
+        .media-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: #f8fafc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: #22c55e;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.5rem;
+            background: #22c55e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .impact-number {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo" onclick="showPage('home')">🌱 GreenByte Technologies Ghana</div>
+            <ul class="nav-menu">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('projects')">Projects</a></li>
+                <li><a onclick="showPage('programs')">Programs</a></li>
+                <li><a onclick="showPage('impact')">Impact</a></li>
+                <li><a onclick="showPage('media')">Media</a></li>
+                <li><a onclick="showPage('partners')">Partners</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <button class="cta-btn" onclick="showPage('partners')">Partner with Us</button>
+        </nav>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Innovating Sustainably, Growing Responsibly</h1>
+            <p>Empowering rural communities through sustainable technology, digital agro-education, and inclusive innovation.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="showPage('projects')">Explore Our Work</button>
+                <button class="btn-secondary" onclick="showPage('partners')">Partner With Us</button>
+            </div>
+        </section>
+
+        <!-- Impact Snapshot -->
+        <section class="impact-snapshot">
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">500+</span>
+                    <span class="impact-label">Farmers Trained</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">300+</span>
+                    <span class="impact-label">Women Reached</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">150+</span>
+                    <span class="impact-label">PWDs Reached</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">10+</span>
+                    <span class="impact-label">Communities Reached</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">100%</span>
+                    <span class="impact-label">Eco-Smart Innovations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Focus Projects -->
+        <section class="section">
+            <h2 class="section-title">Current Focus Projects</h2>
+            <p class="section-subtitle">Driving change through innovative technology solutions</p>
+            
+            <div class="projects-grid">
+                <div class="project-card" onclick="showPage('projects')">
+                    <div class="project-image">📽️</div>
+                    <div class="project-content">
+                        <h3>Smart Projector Training – 2025</h3>
+                        <p>Bringing solar-powered digital learning to rural communities, training farmers with climate-smart agricultural practices through video-based education.</p>
+                        <button class="cta-btn" style="margin-top: 1rem;">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showPage('projects')">
+                    <div class="project-image">💻</div>
+                    <div class="project-content">
+                        <h3>Digital Literacy for Rural Youth</h3>
+                        <p>Equipping young people with essential digital skills to access opportunities in the modern economy and bridge the digital divide.</p>
+                        <button class="cta-btn" style="margin-top: 1rem;">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showPage('projects')">
+                    <div class="project-image">🚀</div>
+                    <div class="project-content">
+                        <h3>Green Innovation Hub</h3>
+                        <p>Creating a collaborative space for sustainable technology development and community-driven innovation. Coming Soon!</p>
+                        <button class="cta-btn" style="margin-top: 1rem;">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why GreenByte -->
+        <section class="why-greenbyte">
+            <h2 class="section-title">Why GreenByte?</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🌱</div>
+                    <div class="value-title">Sustainability</div>
+                    <p>Eco-friendly solutions that protect our environment for future generations</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">💡</div>
+                    <div class="value-title">Innovation</div>
+                    <p>Cutting-edge technology adapted to local needs and contexts</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-title">Empowerment</div>
+                    <p>Building capacity and creating opportunities for underserved communities</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">📈</div>
+                    <div class="value-title">Impact</div>
+                    <p>Measurable results that transform lives and strengthen communities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2 class="section-title" style="color: white;">What People Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card active">
+                    <p class="testimonial-text">"The videos taught us better ways to farm and save energy. Our yields have improved and we're spending less on inputs."</p>
+                    <p class="testimonial-author">– Farmer, Galwugu</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"GreenByte's digital literacy program opened doors I never knew existed. Now I can apply for jobs online and communicate with the world."</p>
+                    <p class="testimonial-author">– Youth Participant, Tamale</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a woman with disability, I felt excluded from many opportunities. GreenByte's inclusive approach has given me hope and practical skills."</p>
+                    <p class="testimonial-author">– Program Beneficiary</p>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="showTestimonial(0)"></span>
+                    <span class="dot" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners -->
+        <section class="partners">
+            <h2 class="section-title">Our Partners & Collaborators</h2>
+            <p class="section-subtitle">Working together for sustainable impact</p>
+            <div class="partners-grid">
+                <div class="partner-logo">Access Agriculture</div>
+                <div class="partner-logo">WUSC Ghana</div>
+                <div class="partner-logo">ACTIVATE Project</div>
+                <div class="partner-logo">Local District Assemblies</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="hero small">
+            <h1>About GreenByte Technologies Ghana</h1>
+            <p>Building a sustainable future through technology and innovation</p>
+        </section>
+
+        <section class="section">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: #22c55e; margin-bottom: 1rem;">Our Story</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    GreenByte Technologies Ghana was founded with a vision to bridge the digital divide and empower rural communities through sustainable technology solutions. We believe that innovation should serve everyone, especially those in underserved communities who stand to benefit most from access to information and modern tools.
+                </p>
+
+                <h2 style="color: #22c55e; margin-bottom: 1rem;">Mission</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    To promote sustainable growth through eco-friendly technology, empowering rural communities with digital literacy, climate-smart agricultural practices, and inclusive innovation that creates lasting positive impact.
+                </p>
+
+                <h2 style="color: #22c55e; margin-bottom: 1rem;">Vision</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    To bridge the digital divide and empower communities for a green future where technology serves as a catalyst for sustainable development, economic opportunity, and environmental stewardship.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Our Leadership</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">OJM</div>
+                    <div class="team-name">Osman Jibril Mutala</div>
+                    <div class="team-role">Founder & CEO</div>
+                    <p>Passionate about leveraging technology to create sustainable solutions for rural communities across Ghana.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">👥</div>
+                    <div class="team-name">Technical Team</div>
+                    <div class="team-role">Innovation & Development</div>
+                    <p>Dedicated professionals working to bring cutting-edge sustainable solutions to communities.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">🤝</div>
+                    <div class="team-name">Community Team</div>
+                    <div class="team-role">Outreach & Training</div>
+                    <p>On-ground experts facilitating training and building lasting relationships with communities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-greenbyte">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">💡</div>
+                    <div class="value-title">Innovation</div>
+                    <p>We constantly seek new ways to solve challenges and create value</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">Integrity</div>
+                    <p>We operate with transparency, honesty, and accountability</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌍</div>
+                    <div class="value-title">Inclusion</div>
+                    <p>We ensure everyone, regardless of background, can benefit from our work</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">📈</div>
+                    <div class="value-title">Impact</div>
+                    <p>We measure success by the positive change we create in communities</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PROJECTS PAGE -->
+    <div id="projects" class="page">
+        <section class="hero small">
+            <h1>Our Work in Action</h1>
+            <p>Transforming communities through sustainable technology projects</p>
+        </section>
+
+        <section class="section">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">📽️</div>
+                    <div class="project-content">
+                        <h3>Smart Projector Training – 2025</h3>
+                        <p><strong>Location:</strong> Northern Ghana</p>
+                        <p><strong>Beneficiaries:</strong> 500+ farmers</p>
+                        <p style="margin-top: 1rem;">Using solar-powered projectors to deliver video-based agricultural training in local languages, covering topics like climate-smart farming, soil conservation, and sustainable pest management.</p>
+                        <p style="margin-top: 1rem;"><strong>Key Outcomes:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Improved farming yields by 30%</li>
+                            <li>Reduced chemical inputs by 40%</li>
+                            <li>Increased awareness of climate adaptation strategies</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Partners:</strong> Access Agriculture, WUSC Ghana</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">💻</div>
+                    <div class="project-content">
+                        <h3>Digital Literacy for Rural Youth</h3>
+                        <p><strong>Location:</strong> Tamale & Surrounding Communities</p>
+                        <p><strong>Beneficiaries:</strong> 200+ youth and women</p>
+                        <p style="margin-top: 1rem;">Comprehensive digital skills training program teaching basic computing, internet literacy, online safety, and practical applications for employment and entrepreneurship.</p>
+                        <p style="margin-top: 1rem;"><strong>Key Outcomes:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>75% of participants gained employment or started businesses</li>
+                            <li>Increased confidence in using digital tools</li>
+                            <li>Connected rural youth to global opportunities</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Partners:</strong> ACTIVATE Project, Local ICT Centers</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🚀</div>
+                    <div class="project-content">
+                        <h3>Green Innovation Hub (Coming Soon)</h3>
+                        <p><strong>Location:</strong> Tamale, Northern Region</p>
+                        <p><strong>Target Launch:</strong> 2026</p>
+                        <p style="margin-top: 1rem;">A collaborative space for sustainable technology development, providing access to tools, mentorship, and resources for local innovators and entrepreneurs focused on green solutions.</p>
+                        <p style="margin-top: 1rem;"><strong>Planned Features:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Co-working space with solar power</li>
+                            <li>Technology lab and training center</li>
+                            <li>Incubation program for green startups</li>
+                            <li>Community meeting and event space</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">♿</div>
+                    <div class="project-content">
+                        <h3>Inclusive Technology Access</h3>
+                        <p><strong>Location:</strong> Multiple Communities</p>
+                        <p><strong>Beneficiaries:</strong> 150+ persons with disabilities</p>
+                        <p style="margin-top: 1rem;">Ensuring persons with disabilities have equal access to technology training and economic opportunities through adapted learning materials and assistive technologies.</p>
+                        <p style="margin-top: 1rem;"><strong>Key Outcomes:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Developed accessible training materials</li>
+                            <li>Provided assistive devices and software</li>
+                            <li>Created inclusive learning environments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🌾</div>
+                    <div class="project-content">
+                        <h3>Climate-Smart Agriculture Initiative</h3>
+                        <p><strong>Location:</strong> Rural Farming Communities</p>
+                        <p><strong>Beneficiaries:</strong> 400+ farmers</p>
+                        <p style="margin-top: 1rem;">Training farmers on sustainable agricultural practices that increase resilience to climate change while improving productivity and environmental stewardship.</p>
+                        <p style="margin-top: 1rem;"><strong>Key Topics:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Water conservation techniques</li>
+                            <li>Organic pest management</li>
+                            <li>Soil health and composting</li>
+                            <li>Crop diversification strategies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">☀️</div>
+                    <div class="project-content">
+                        <h3>Solar-Powered Community Centers</h3>
+                        <p><strong>Location:</strong> Off-grid Communities</p>
+                        <p><strong>Impact:</strong> 8 communities powered</p>
+                        <p style="margin-top: 1rem;">Establishing solar-powered community learning centers that serve as hubs for education, digital access, and community gatherings in areas without electricity.</p>
+                        <p style="margin-top: 1rem;"><strong>Key Features:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Solar panel installations</li>
+                            <li>Computer and internet access</li>
+                            <li>Projection systems for training</li>
+                            <li>Mobile device charging stations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PROGRAMS PAGE -->
+    <div id="programs" class="page">
+        <section class="hero small">
+            <h1>Our Programs & Services</h1>
+            <p>Comprehensive solutions for sustainable community development</p>
+        </section>
+
+        <section class="section">
+            <div class="programs-tabs">
+                <button class="tab-btn active" onclick="showProgramTab(0)">AgriTech & Climate-Smart</button>
+                <button class="tab-btn" onclick="showProgramTab(1)">Digital Literacy</button>
+                <button class="tab-btn" onclick="showProgramTab(2)">Eco-Friendly IT</button>
+                <button class="tab-btn" onclick="showProgramTab(3)">Innovation Hubs</button>
+                <button class="tab-btn" onclick="showProgramTab(4)">Community Empowerment</button>
+            </div>
+
+            <div class="tab-content active" id="program-0">
+                <div class="program-icon">🌾</div>
+                <h3 style="text-align: center; color: #22c55e; font-size: 2rem; margin-bottom: 1rem;">AgriTech & Climate-Smart Practices</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Empowering farmers with sustainable agricultural technologies and practices</p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem;">Our AgriTech program combines traditional farming knowledge with modern technology to help farmers adapt to climate change while improving productivity and sustainability.</p>
+                    <h4 style="color: #22c55e; margin-top: 1.5rem; margin-bottom: 0.5rem;">What We Offer:</h4>
+                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                        <li>Solar-powered video training in local languages</li>
+                        <li>Climate-smart farming techniques</li>
+                        <li>Organic pest and disease management</li>
+                        <li>Water conservation and irrigation methods</li>
+                        <li>Soil health and composting workshops</li>
+                        <li>Post-harvest handling and storage solutions</li>
+                    </ul>
+                    <button class="cta-btn" style="display: block; margin: 2rem auto;" onclick="showPage('contact')">Join This Program</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="program-1">
+                <div class="program-icon">💻</div>
+                <h3 style="text-align: center; color: #22c55e; font-size: 2rem; margin-bottom: 1rem;">Digital Literacy & Skills Development</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Building digital skills for youth, women, and underserved populations</p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem;">We provide comprehensive digital literacy training that equips participants with practical skills for the modern economy, from basic computing to advanced digital tools.</p>
+                    <h4 style="color: #22c55e; margin-top: 1.5rem; margin-bottom: 0.5rem;">Program Modules:</h4>
+                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                        <li>Basic computer skills and operations</li>
+                        <li>Internet literacy and online safety</li>
+                        <li>Microsoft Office and productivity tools</li>
+                        <li>Social media for business and communication</li>
+                        <li>Online job search and application skills</li>
+                        <li>E-commerce and digital entrepreneurship</li>
+                    </ul>
+                    <button class="cta-btn" style="display: block; margin: 2rem auto;" onclick="showPage('contact')">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="program-2">
+                <div class="program-icon">♻️</div>
+                <h3 style="text-align: center; color: #22c55e; font-size: 2rem; margin-bottom: 1rem;">Eco-Friendly IT Solutions</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Sustainable technology infrastructure for communities and organizations</p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem;">We design and implement environmentally responsible IT solutions that reduce energy consumption while providing reliable technology access.</p>
+                    <h4 style="color: #22c55e; margin-top: 1.5rem; margin-bottom: 0.5rem;">Our Services:</h4>
+                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                        <li>Solar-powered computer labs and centers</li>
+                        <li>Energy-efficient hardware recommendations</li>
+                        <li>E-waste management and recycling programs</li>
+                        <li>Refurbished computer distribution</li>
+                        <li>Sustainable IT infrastructure consulting</li>
+                        <li>Green technology workshops and training</li>
+                    </ul>
+                    <button class="cta-btn" style="display: block; margin: 2rem auto;" onclick="showPage('contact')">Request Consultation</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="program-3">
+                <div class="program-icon">🚀</div>
+                <h3 style="text-align: center; color: #22c55e; font-size: 2rem; margin-bottom: 1rem;">Green Innovation Hubs</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Collaborative spaces for sustainable innovation and entrepreneurship</p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem;">Our innovation hubs provide the infrastructure, mentorship, and community support needed to develop and scale sustainable technology solutions.</p>
+                    <h4 style="color: #22c55e; margin-top: 1.5rem; margin-bottom: 0.5rem;">Hub Features:</h4>
+                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                        <li>Co-working space with high-speed internet</li>
+                        <li>Technology lab and prototyping equipment</li>
+                        <li>Mentorship from experienced entrepreneurs</li>
+                        <li>Access to funding and investment networks</li>
+                        <li>Training workshops and skill-building sessions</li>
+                        <li>Networking events and community building</li>
+                    </ul>
+                    <button class="cta-btn" style="display: block; margin: 2rem auto;" onclick="showPage('contact')">Get Involved</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="program-4">
+                <div class="program-icon">🤝</div>
+                <h3 style="text-align: center; color: #22c55e; font-size: 2rem; margin-bottom: 1rem;">Community Empowerment</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Holistic programs that strengthen communities and create lasting change</p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem;">We work directly with communities to identify needs, build capacity, and implement solutions that create sustainable economic and social development.</p>
+                    <h4 style="color: #22c55e; margin-top: 1.5rem; margin-bottom: 0.5rem;">Focus Areas:</h4>
+                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                        <li>Women's economic empowerment programs</li>
+                        <li>Youth leadership and skills development</li>
+                        <li>Inclusive programs for persons with disabilities</li>
+                        <li>Community health and education initiatives</li>
+                        <li>Local governance and civic engagement</li>
+                        <li>Cultural preservation through digital archiving</li>
+                    </ul>
+                    <button class="cta-btn" style="display: block; margin: 2rem auto;" onclick="showPage('contact')">Partner With Us</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- IMPACT PAGE -->
+    <div id="impact" class="page">
+        <section class="hero small">
+            <h1>Real Change. Measurable Impact.</h1>
+            <p>See the difference we're making in communities across Ghana</p>
+        </section>
+
+        <!-- Impact Dashboard -->
+        <section class="impact-snapshot">
+            <h2 class="section-title">Our Impact By The Numbers</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">500+</span>
+                    <span class="impact-label">Farmers Trained</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">300+</span>
+                    <span class="impact-label">Women Empowered</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">150+</span>
+                    <span class="impact-label">PWDs Reached</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">10+</span>
+                    <span class="impact-label">Communities Served</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">8</span>
+                    <span class="impact-label">Solar Centers Built</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">1000+</span>
+                    <span class="impact-label">Lives Touched</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Interactive Impact Map</h2>
+            <p class="section-subtitle">Explore our work across Northern Ghana</p>
+            <div class="map-placeholder">
+                🗺️ Ghana Impact Map<br>
+                <span style="font-size: 1rem;">Northern Region Communities</span>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title" style="color: white;">Stories of Impact</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card active">
+                    <p class="testimonial-text">"Before GreenByte's training, I struggled with low yields and pest problems. Now I use natural methods and my farm is thriving. I'm even teaching other farmers!"</p>
+                    <p class="testimonial-author">– Amina, Farmer, Galwugu</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I never thought someone like me could use a computer. GreenByte showed me it was possible and now I run my own online business selling crafts."</p>
+                    <p class="testimonial-author">– Fatima, Woman Entrepreneur</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a person with disability, I felt left behind. GreenByte's inclusive approach gave me skills and confidence. I now work as a data entry clerk."</p>
+                    <p class="testimonial-author">– Kwame, Program Graduate</p>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="showImpactTestimonial(0)"></span>
+                    <span class="dot" onclick="showImpactTestimonial(1)"></span>
+                    <span class="dot" onclick="showImpactTestimonial(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Impact Gallery</h2>
+            <p class="section-subtitle">See our work in action</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">📽️</div>
+                    <div class="gallery-caption">
+                        <strong>Smart Projector Session</strong><br>
+                        Farmers watching climate-smart agriculture videos
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">💻</div>
+                    <div class="gallery-caption">
+                        <strong>Digital Literacy Class</strong><br>
+                        Youth learning computer skills
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">👩‍🌾</div>
+                    <div class="gallery-caption">
+                        <strong>Women's Training</strong><br>
+                        Women empowerment program in action
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">☀️</div>
+                    <div class="gallery-caption">
+                        <strong>Solar Installation</strong><br>
+                        Community center powered by solar energy
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">🌱</div>
+                    <div class="gallery-caption">
+                        <strong>Sustainable Farming</strong><br>
+                        Organic farming demonstration
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">🎓</div>
+                    <div class="gallery-caption">
+                        <strong>Graduation Day</strong><br>
+                        Celebrating program completion
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center;">
+            <h2 class="section-title">Download Our Impact Report</h2>
+            <p class="section-subtitle">Get the full story of our 2025 impact</p>
+            <button class="cta-btn" style="font-size: 1.1rem; padding: 1.25rem 2.5rem;">
+                📄 Download 2025 Impact Report (PDF)
+            </button>
+        </section>
+    </div>
+
+    <!-- MEDIA PAGE -->
+    <div id="media" class="page">
+        <section class="hero small">
+            <h1>Media & Resources</h1>
+            <p>News, photos, videos, and downloadable resources</p>
+        </section>
+
+        <section class="section">
+            <div class="media-tabs">
+                <button class="tab-btn active" onclick="showMediaTab(0)">News & Updates</button>
+                <button class="tab-btn" onclick="showMediaTab(1)">Photo Gallery</button>
+                <button class="tab-btn" onclick="showMediaTab(2)">Video Library</button>
+                <button class="tab-btn" onclick="showMediaTab(3)">Downloads</button>
+            </div>
+
+            <div class="tab-content active" id="media-0">
+                <h3 style="color: #22c55e; margin-bottom: 2rem; text-align: center;">Latest News & Blog Posts</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">📰</div>
+                        <div class="project-content">
+                            <p style="color: #22c55e; font-size: 0.9rem;">March 15, 2025</p>
+                            <h3>GreenByte Launches Smart Projector Initiative</h3>
+                            <p>We're excited to announce the expansion of our solar-powered video training program to 5 new communities in the Northern Region...</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">Read More</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">📰</div>
+                        <div class="project-content">
+                            <p style="color: #22c55e; font-size: 0.9rem;">February 28, 2025</p>
+                            <h3>500 Farmers Milestone Reached</h3>
+                            <p>We celebrate a major milestone as we surpass 500 farmers trained in climate-smart agricultural practices across our programs...</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">Read More</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">📰</div>
+                        <div class="project-content">
+                            <p style="color: #22c55e; font-size: 0.9rem;">January 10, 2025</p>
+                            <h3>New Partnership with WUSC Ghana</h3>
+                            <p>GreenByte Technologies Ghana partners with WUSC to expand digital literacy programs for youth in rural communities...</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="media-1">
+                <h3 style="color: #22c55e; margin-bottom: 2rem; text-align: center;">Photo Gallery</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-caption">Community Training Session</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-caption">Solar Panel Installation</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-caption">Digital Literacy Class</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-caption">Women's Empowerment Workshop</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-caption">Field Demonstration</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-caption">Team Meeting</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="media-2">
+                <h3 style="color: #22c55e; margin-bottom: 2rem; text-align: center;">Video Library</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">🎥</div>
+                        <div class="project-content">
+                            <h3>Smart Projector Demo</h3>
+                            <p>Watch how we use solar-powered projectors to deliver agricultural training in remote communities.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">▶️ Watch Video</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">🎥</div>
+                        <div class="project-content">
+                            <h3>Community Impact Stories</h3>
+                            <p>Hear directly from beneficiaries about how GreenByte programs have transformed their lives.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">▶️ Watch Video</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">🎥</div>
+                        <div class="project-content">
+                            <h3>Digital Literacy Success</h3>
+                            <p>Follow the journey of youth learning digital skills and finding new opportunities.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">▶️ Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="media-3">
+                <h3 style="color: #22c55e; margin-bottom: 2rem; text-align: center;">Downloadable Resources</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">📄</div>
+                        <div class="project-content">
+                            <h3>2025 Impact Report</h3>
+                            <p>Comprehensive report detailing our programs, reach, and impact across communities.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">📥 Download PDF</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">📄</div>
+                        <div class="project-content">
+                            <h3>Company Brochure</h3>
+                            <p>Overview of GreenByte Technologies Ghana, our mission, programs, and services.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">📥 Download PDF</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">📄</div>
+                        <div class="project-content">
+                            <h3>Partnership Deck</h3>
+                            <p>Information for potential partners and collaborators interested in working with us.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">📥 Download PDF</button>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">📄</div>
+                        <div class="project-content">
+                            <h3>Training Manuals</h3>
+                            <p>Educational resources and guides for our various training programs.</p>
+                            <button class="cta-btn" style="margin-top: 1rem;">📥 Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PARTNERS PAGE -->
+    <div id="partners" class="page">
+        <section class="hero small">
+            <h1>Partner With Us</h1>
+            <p>Let's Collaborate for a Greener Tomorrow</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Why Partner with GreenByte?</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">Proven Impact</div>
+                    <p>Track record of delivering measurable results in community development</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌍</div>
+                    <div class="value-title">Local Expertise</div>
+                    <p>Deep understanding of local contexts and community needs</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">♻️</div>
+                    <div class="value-title">Sustainable Solutions</div>
+                    <p>All our interventions prioritize environmental sustainability</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-title">Collaborative Approach</div>
+                    <p>We work closely with partners to achieve shared goals</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Partnership Opportunities</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>Corporate Partnerships</h3>
+                        <p>Align your CSR goals with sustainable community development through strategic partnerships.</p>
+                        <ul style="margin: 1rem 0 1rem 1.5rem;">
+                            <li>Program sponsorship opportunities</li>
+                            <li>Employee volunteer programs</li>
+                            <li>Technology donations</li>
+                            <li>Co-branded initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>NGO & Development Partners</h3>
+                        <p>Collaborate on projects that combine resources and expertise for greater impact.</p>
+                        <ul style="margin: 1rem 0 1rem 1.5rem;">
+                            <li>Joint program implementation</li>
+                            <li>Knowledge sharing and capacity building</li>
+                            <li>Resource mobilization</li>
+                            <li>Research and documentation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏫</div>
+                    <div class="project-content">
+                        <h3>Government & Institutions</h3>
+                        <p>Work with us to scale sustainable technology solutions at district and regional levels.</p>
+                        <ul style="margin: 1rem 0 1rem 1.5rem;">
+                            <li>Policy advocacy and development</li>
+                            <li>Infrastructure development</li>
+                            <li>Community sensitization</li>
+                            <li>Monitoring and evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🎓</div>
+                    <div class="project-content">
+                        <h3>Academic Partnerships</h3>
+                        <p>Partner with us on research, innovation, and student engagement opportunities.</p>
+                        <ul style="margin: 1rem 0 1rem 1.5rem;">
+                            <li>Research collaborations</li>
+                            <li>Student internships and fieldwork</li>
+                            <li>Technology development projects</li>
+                            <li>Knowledge exchange programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners">
+            <h2 class="section-title">Current & Past Partners</h2>
+            <p class="section-subtitle">Thank you to our valued partners</p>
+            <div class="partners-grid">
+                <div class="partner-logo">Access Agriculture</div>
+                <div class="partner-logo">WUSC Ghana</div>
+                <div class="partner-logo">ACTIVATE Project</div>
+                <div class="partner-logo">Local District Assemblies</div>
+                <div class="partner-logo">Community-Based Organizations</div>
+                <div class="partner-logo">International Development Agencies</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Partnership Inquiry Form</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your interest! We will contact you soon.');">
+                        <div class="form-group">
+                            <label>Organization Name *</label>
+                            <input type="text" required placeholder="Your organization">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Person *</label>
+                            <input type="text" required placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" required placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="+233 XX XXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>Partnership Type *</label>
+                            <select required>
+                                <option value="">Select one</option>
+                                <option value="corporate">Corporate Partnership</option>
+                                <option value="ngo">NGO/Development Partnership</option>
+                                <option value="government">Government/Institutional</option>
+                                <option value="academic">Academic Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Areas of Interest *</label>
+                            <textarea required placeholder="Tell us about your partnership interests and goals"></textarea>
+                        </div>
+                        <button type="submit" class="cta-btn" style="width: 100%; font-size: 1.1rem;">Submit Partnership Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="hero small">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you</p>
+        </section>
+
+        <section class="section">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3 style="color: #22c55e; margin-bottom: 1.5rem;">Send Us a Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your message! We will respond soon.');">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" required placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="+233 XX XXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>Subject *</label>
+                            <select required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="programs">Program Information</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="volunteer">Volunteer Interest</option>
+                                <option value="media">Media Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea required placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="cta-btn" style="width: 100%; font-size: 1.1rem;">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-box">
+                    <h3 style="color: #22c55e; margin-bottom: 1.5rem;">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address</strong><br>
+                            Tamale, Northern Region<br>
+                            Ghana
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            greenbytetechnologygh@gmail.com
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">☎️</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +233 54 404 4989
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div>
+                            <strong>Office Hours</strong><br>
+                            Monday - Friday: 8:00 AM - 5:00 PM<br>
+                            Saturday: 9:00 AM - 2:00 PM<br>
+                            Sunday: Closed
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: #22c55e; margin-bottom: 1rem;">Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" style="color: #22c55e; font-size: 2rem;">📘</a>
+                            <a href="#" style="color: #22c55e; font-size: 2rem;">🐦</a>
+                            <a href="#" style="color: #22c55e; font-size: 2rem;">📷</a>
+                            <a href="#" style="color: #22c55e; font-size: 2rem;">💼</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-placeholder">
+                🗺️ Google Maps<br>
+                <span style="font-size: 1rem;">Tamale, Northern Region, Ghana</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Subscribe to Our Newsletter</h2>
+            <p class="section-subtitle">Stay updated with our latest projects, impact stories, and opportunities</p>
+            <form class="newsletter-form" style="max-width: 600px; margin: 0 auto;" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a onclick="showPage('home')">Home</a></li>
+                    <li><a onclick="showPage('about')">About Us</a></li>
+                    <li><a onclick="showPage('projects')">Projects</a></li>
+                    <li><a onclick="showPage('programs')">Programs</a></li>
+                    <li><a onclick="showPage('impact')">Impact</a></li>
+                    <li><a onclick="showPage('media')">Media</a></li>
+                    <li><a onclick="showPage('partners')">Partners</a></li>
+                    <li><a onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Our Programs</h3>
+                <ul>
+                    <li><a onclick="showPage('programs')">AgriTech Solutions</a></li>
+                    <li><a onclick="showPage('programs')">Digital Literacy</a></li>
+                    <li><a onclick="showPage('programs')">Eco-Friendly IT</a></li>
+                    <li><a onclick="showPage('programs')">Innovation Hubs</a></li>
+                    <li><a onclick="showPage('programs')">Community Empowerment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <span>📍</span>
+                    <span>Tamale, Northern Region, Ghana</span>
+                </div>
+                <div class="contact-info">
+                    <span>📧</span>
+                    <span>greenbytetechnologygh@gmail.com</span>
+                </div>
+                <div class="contact-info">
+                    <span>☎️</span>
+                    <span>+233 54 404 4989</span>
+                </div>
+                <div class="social-icons">
+                    <a href="#" style="color: #22c55e;">📘</a>
+                    <a href="#" style="color: #22c55e;">🐦</a>
+                    <a href="#" style="color: #22c55e;">📷</a>
+                    <a href="#" style="color: #22c55e;">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Stay updated with our latest projects and impact stories</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 GreenByte Technologies Ghana. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Innovating Sustainably, Growing Responsibly 🌱</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        function showTestimonial(index) {
+            const testimonials = document.querySelectorAll('#home .testimonial-card');
+            const dots = document.querySelectorAll('#home .dot');
+            
+            testimonials.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            const testimonials = document.querySelectorAll('#home .testimonial-card');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Impact page testimonials
+        let currentImpactTestimonial = 0;
+        function showImpactTestimonial(index) {
+            const testimonials = document.querySelectorAll('#impact .testimonial-card');
+            const dots = document.querySelectorAll('#impact .dot');
+            
+            testimonials.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentImpactTestimonial = index;
+        }
+
+        // Programs Tabs
+        function showProgramTab(index) {
+            const tabs = document.querySelectorAll('.programs-tabs .tab-btn');
+            const contents = document.querySelectorAll('#programs .tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            tabs[index].classList.add('active');
+            document.getElementById('program-' + index).classList.add('active');
+        }
+
+        // Media Tabs
+        function showMediaTab(index) {
+            const tabs = document.querySelectorAll('.media-tabs .tab-btn');
+            const contents = document.querySelectorAll('#media .tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            tabs[index].classList.add('active');
+            document.getElementById('media-' + index).classList.add('active');
+        }
+    </script>
+</body>
+</html>
